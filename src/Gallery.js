@@ -1,5 +1,5 @@
 import React from 'react';
-import GalleyPopup from './GalleryPopup';
+import GalleryePopup from './GalleryPopup';
 
 class Gallery extends React.Component {
     constructor(props) {
@@ -36,10 +36,10 @@ class Gallery extends React.Component {
         }
 
         const newel = this.props.imagesUrls.find((elem, index)=> index === this.curIndex );
-        this.setState(Object.assign({},{
+        this.setState({
             bigUrl: newel.big,
             desc: newel.desc,
-        }))
+        })
     }
 
     nextClick() {
@@ -57,14 +57,13 @@ class Gallery extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <GalleyPopup
+                <GalleryePopup
                     isShowLargeImage={this.state.isShowLargeImage}
                     closeImage={this.closeImage}
                     desc={this.state.desc}
                     bigUrl={this.state.bigUrl}
                     prevClick={this.prevClick}
                     nextClick={this.nextClick}
-                    changeImg={this.state.changeImg}
                 />
                 <div className="gallery">
                     <img onClick={this.handleImageClick} width="500" height="500" src={this.props.smallUrl}
